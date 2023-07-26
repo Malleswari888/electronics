@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="E- Laptops (Laptop Hub)">
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Electronics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script>
+        let model = {Laptops:[
+                        {
+                        image:'Hp.jpg',
+                        name:'HP 15s,11th Gen Intel Core i3 || 1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop', 
+                        price:'Price : ₹ 50,990/-',
+                        list:[' Alexa Built-in/Win 11 ',' Intel UHD Graphics/Dual Speakers/MS Office 2021',' 1115G4 8GB RAM | 512GB SSD 15.6-inch(39.6 cm) ',' Micro-Edge Anti-Glare FHD Laptop, Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers/MS Office 2021.']
+                        },
+                        {
+                        image:'Asus.jpg',
+                        name:'ASUS [Smart Choice] Vivobook 15',
+                        price:'Price : ₹ 38,990/-',
+                        list:[' 15.6" (39.62 cms) HD ',' Thin and Light Laptop (8GB/512GB SSD)',' Integrated Graphics | Windows 11/Office 2021',' Fingerprint/Silver/1.8 kg, X515MA-BR024WS.']
+                        },
+                        {
+                        image:'Dell.jpg',
+                        name:'Dell 14 Laptop, Intel Core i3 || 1115G4/8GB/512GB/14.0"(35.56cm) FHD Display',
+                        price:'Price : ₹ 52,900/-',
+                        list:[' TUV Rheinland Certified Comfortview Reduce Harmful Blue Light Emissions ',' 1115G4/8GB/512GB/14.0',' (35.56cm) FHD Display | Win 11+MSO',' McAfee Antivirus, Dell Power Manager, Support Assist, Dell ComfortView.']
+                        },
+                        {
+                        image:'Macbook.jpg',
+                        name:'Apple 2022 MacBook Air Laptop || 34.46 cm (13.6-inch)',
+                        price:'Price : ₹ 1,19,900/-',
+                        list:[' MacBook Air Laptop with M2 chip',' Liquid Retina Display | 8GB RAM, 256GB SSD Storage',' Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Silver.']
+                        },
+                        {
+                        image:'Sony.jpg',
+                        name:'VAIO SE14 NP14V3IN033P Intel Core i5-1135G7',
+                        price:'Price : ₹ 88,990/-',
+                        list:[' 14 inches Laptop ',' (Iris Xe Graphics 8GB/512GB SSD/Windows 10 Home/Backlit KBD/FHD/Fingerprint Reader) MS Office 365, 1.39kg,with Carrying Bag, Red Copper.']
+                        },
+                        {
+                        image:'Lenovo.jpg',
+                        name:'Lenovo V15 Intel Celeron N4500',
+                        price:'Price : ₹ 42,440/-',
+                        list:[' 15.6" (39.62 cm) FHD ',' Antiglare 250 Nits Thin and Light Laptop (8GB RAM/256GB SSD/Windows 11 Home.']
+                        },
+           ]};
+        var pro = model['Laptops'];
+
+         // logo and header
+
+        var header = document.createElement("header");
+        var img = document.createElement("img");
+        img.setAttribute("src","logo.png");
+        img.setAttribute("alt","logo");
+        img.setAttribute("height","30px");
+        img.setAttribute("width","50px");
+        header.append(img);
+        var Content = document.createTextNode(" Laptop Hub"); 
+        header.appendChild(Content); 
+        document.body.appendChild(header);
+
+        // section for the products
+
+        var section = document.createElement("section");
+        section.classList.add("products");
+        document.body.appendChild(section);
+// for loop used to loop all the products
+
+for (var i = 0; i < pro.length;i++){
+
+        var item = document.createElement("div");
+        item.classList.add("item");
+        section.append(item);
+   
+        var img = document.createElement("img");
+        img.setAttribute("src",pro[i].image);
+        img.setAttribute("alt",pro[i].name);
+        item.append(img);
+
+        var details = document.createElement("div");
+        details.classList.add("details");
+        item.append(details);
+        // phone modal
+
+        var title = document.createElement("p"); 
+             var Content = document.createTextNode(pro[i].name); 
+             title.classList.add("title");
+             title.appendChild(Content); 
+             details.append(title);
+
+            // phone price
+
+             var price = document.createElement("p"); 
+             var Content = document.createTextNode(pro[i].price); 
+             price.classList.add("price");
+             price.appendChild(Content); 
+             details.append(price);
+
+
+            // description about the phone in list format
+        
+		    var ul = document.createElement('ul');
+		    details.appendChild(ul);
+
+		    pro[i].list.forEach(function(name){
+			var li = document.createElement('li');
+            ul.appendChild(li);
+            var i = document.createElement('i');
+            i.classList.add("fa");
+            i.classList.add("fa-check");
+            li.append(i);
+			li.innerHTML += name;
+        });
+        // buy button 
+
+        var button = document.createElement("button");
+        button.innerHTML = "BUY NOW";
+        details.append(button);
+}
+    </script>
+</body>
+</html>
